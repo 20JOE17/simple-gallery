@@ -22,26 +22,28 @@ $(document).ready(function () {
 
         $("li").removeClass("active");
         $(this).addClass("active");
-
       });
 
-      $("#prev").on("click", function(){
-
-      });
-
-      $("#next").on("click", function(){
-
-      });
+      $ul.append($li);
 
       if(index === 0){
         $li.trigger("click");
       }
-      $ul.append($li);
+    });
+
+    $('#next').on('click',function() {
+      var $liactive = $('li.active');
+      var $linext = $liactive.next();
+      $linext.trigger('click');
+    });
+
+    $('#prev').on('click',function() {
+      var $liactive = $('li.active');
+      var $liprev = $liactive.prev();
+      $liprev.trigger('click');
     });
 
     $('body').append($h1, $ul, $link)
   });
-
 });
-
 
